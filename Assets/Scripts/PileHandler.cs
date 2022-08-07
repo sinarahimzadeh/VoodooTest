@@ -18,6 +18,7 @@ public Rigidbody rigidbody;
         if(Input.GetMouseButtonDown(0))
         rigidbody.AddForce(Vector3.up*force*Time.deltaTime);
         //hi
+        //hiagain
         
     }
 }
