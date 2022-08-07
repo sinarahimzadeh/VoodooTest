@@ -6,7 +6,10 @@ public class PileHandler : MonoBehaviour
 {
 public Rigidbody rigidbody;
 private bool fall;
-public float maxY,currentY,upRate ; 
+public bool move;
+[SerializeField] private Vector3 mousePos;
+
+public float maxY,currentY,upRate,forwardSpeed,sideSpeed ; 
 public static PileHandler instance; 
 [SerializeField] private float force;
     public enum States
@@ -32,11 +35,27 @@ public static PileHandler instance;
     // Update is called once per frame
     void Update()
     {
+        if(move)_moveForward();
         if(Input.GetMouseButtonDown(0)){
-            if(states==States.onRail){
+            mousePos = Input.mousePosition;
+
+        }
+        
+        if (Input.GetMouseButton(0))
+            {
+                if (Input.mousePosition.x>mousePos.x)
+                {
+                    moveSideWays(1);
+                }
+                else if(Input.mousePosition.x<mousePos.x)
+                {
+                    moveSideWays(-1);
+                }
+            }
+        if(Input.GetMouseButtonDown(1)){
+              if(states==States.onRail){
             currentY=transform.position.y;
             jump();}
-
         }
         
         if(states==States.inAir){
@@ -55,4 +74,13 @@ public static PileHandler instance;
         states=States.inAir;
          rigidbody.AddForce(Vector3.up*force*Time.deltaTime);
          }
+
+ void moveSideWays(int side)
+    {
+        transform.Translate(side*sideSpeed*Time.deltaTime,0,0);
+    }
+     void _moveForward()
+    {
+        transform.Translate( transform.forward * forwardSpeed * Time.deltaTime);
+    }
 }
