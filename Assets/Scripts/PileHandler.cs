@@ -1,10 +1,11 @@
-using System.Collections;
+ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class PileHandler : MonoBehaviour
 {
-    public float yDistance,maxYdistance;
+public float yDistance,maxYdistance;
+    [SerializeField] TextMesh display;
 public Rigidbody rigidbody;
 private bool fall;
 public bool move;
@@ -36,6 +37,7 @@ public static PileHandler instance;
     // Update is called once per frame
     void Update()
     {
+        display.text = transform.position.y.ToString();
         if(move)_moveForward();
         if(Input.GetMouseButtonDown(0)){
             mousePos = Input.mousePosition;
@@ -51,11 +53,11 @@ public static PileHandler instance;
         if (Input.GetMouseButton(0))
             {
             
-                if (Input.mousePosition.x-mousePos.x>100)
+                if (Input.mousePosition.x-mousePos.x>10)
                 {
                     moveSideWays(1);
                 }
-                else if(mousePos.x-Input.mousePosition.x>100)
+                else if(mousePos.x-Input.mousePosition.x>10)
                 {
                     moveSideWays(-1);
                 }
@@ -68,16 +70,13 @@ public static PileHandler instance;
            if( currentY+maxY>=transform.position.y){
                forwardSpeed=8;
             transform.position=new Vector3(transform.position.x,transform.position.y+upRate,transform.position.z);
-            if (Camera.main.fieldOfView<fieldmax){Camera.main.fieldOfView+=0.01f;}
-            Camera.main.fieldOfView+=fieldSpeed;
            }
            else{
                states=States.falling;
            }
         }
 
-        if(states==States.falling){if (Camera.main.fieldOfView>fieldmin){Camera.main.fieldOfView-=fieldSpeed;}
-}
+        
 
     
     }
