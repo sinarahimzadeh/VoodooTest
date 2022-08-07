@@ -7,6 +7,7 @@ TagManager:
   - ground
   - rail
   - Character
+  - add
   layers:
   - Default
   - TransparentFX

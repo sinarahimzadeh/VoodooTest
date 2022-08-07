@@ -11,7 +11,7 @@ private bool fall;
 public bool move;
 [SerializeField] private Vector3 mousePos;
 [SerializeField] private float fieldSpeed,fieldmax,fieldmin;
-public float maxY,currentY,upRate,forwardSpeed,sideSpeed ; 
+public float maxY,maxX,currentY,upRate,forwardSpeed,sideSpeed ; 
 public static PileHandler instance; 
 [SerializeField] private float force;
     public enum States
@@ -69,7 +69,9 @@ public static PileHandler instance;
         if(states==States.inAir){
            if( currentY+maxY>=transform.position.y){
                forwardSpeed=8;
-            transform.position=new Vector3(transform.position.x,transform.position.y+upRate,transform.position.z);
+                transform.Translate( transform.up * forwardSpeed*5 * Time.deltaTime);
+              //  rigidbody is kinematic
+            //transform.position=new Vector3(transform.position.x,transform.position.y+upRate,transform.position.z);
            }
            else{
                states=States.falling;
