@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PileHandler : MonoBehaviour
 {
-    public float yDistance;
+    public float yDistance,maxYdistance;
 public Rigidbody rigidbody;
 private bool fall;
 public bool move;
@@ -43,7 +43,7 @@ public static PileHandler instance;
         }
          if(Input.GetMouseButtonUp(0)){
 
-            if(states==States.onRail&&yDistance<-250f){
+            if(states==States.onRail&&yDistance<-maxYdistance){
             currentY=transform.position.y;
             jump();
                     }
@@ -59,7 +59,7 @@ public static PileHandler instance;
                 {
                     moveSideWays(-1);
                 }
-                if(mousePos.y-Input.mousePosition.y>250){
+                if(mousePos.y-Input.mousePosition.y>maxYdistance){
             yDistance =Input.mousePosition.y-mousePos.y;
             }
             }
@@ -82,6 +82,7 @@ public static PileHandler instance;
     }
 
     public void jump(){
+        yDistance=0;
         states=States.inAir;
          rigidbody.AddForce(Vector3.up*force*Time.deltaTime);
          }
