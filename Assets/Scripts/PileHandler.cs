@@ -4,11 +4,12 @@ using UnityEngine;
 
 public class PileHandler : MonoBehaviour
 {
+    public float yDistance;
 public Rigidbody rigidbody;
 private bool fall;
 public bool move;
 [SerializeField] private Vector3 mousePos;
-
+[SerializeField] private float fieldSpeed,fieldmax,fieldmin;
 public float maxY,currentY,upRate,forwardSpeed,sideSpeed ; 
 public static PileHandler instance; 
 [SerializeField] private float force;
@@ -40,32 +41,42 @@ public static PileHandler instance;
             mousePos = Input.mousePosition;
 
         }
-        
+         if(Input.GetMouseButtonUp(0)){
+
+            if(states==States.onRail&&yDistance<-250f){
+            currentY=transform.position.y;
+            jump();
+                    }
+                }
         if (Input.GetMouseButton(0))
             {
-                if (Input.mousePosition.x>mousePos.x)
+            
+                if (Input.mousePosition.x-mousePos.x>100)
                 {
                     moveSideWays(1);
                 }
-                else if(Input.mousePosition.x<mousePos.x)
+                else if(mousePos.x-Input.mousePosition.x>100)
                 {
                     moveSideWays(-1);
                 }
+                if(mousePos.y-Input.mousePosition.y>250){
+            yDistance =Input.mousePosition.y-mousePos.y;
             }
-        if(Input.GetMouseButtonDown(1)){
-              if(states==States.onRail){
-            currentY=transform.position.y;
-            jump();}
-        }
+            }
         
         if(states==States.inAir){
            if( currentY+maxY>=transform.position.y){
             transform.position=new Vector3(transform.position.x,transform.position.y+upRate,transform.position.z);
+            if (Camera.main.fieldOfView<fieldmax){Camera.main.fieldOfView+=0.01f;}
+            Camera.main.fieldOfView+=fieldSpeed;
            }
            else{
                states=States.falling;
            }
         }
+
+        if(states==States.falling){if (Camera.main.fieldOfView>fieldmin){Camera.main.fieldOfView-=fieldSpeed;}
+}
 
     
     }
