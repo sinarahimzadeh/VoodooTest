@@ -66,6 +66,7 @@ public static PileHandler instance;
         
         if(states==States.inAir){
            if( currentY+maxY>=transform.position.y){
+               forwardSpeed=8;
             transform.position=new Vector3(transform.position.x,transform.position.y+upRate,transform.position.z);
             if (Camera.main.fieldOfView<fieldmax){Camera.main.fieldOfView+=0.01f;}
             Camera.main.fieldOfView+=fieldSpeed;
