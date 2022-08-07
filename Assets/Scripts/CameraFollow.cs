@@ -7,11 +7,11 @@ public class CameraFollow : MonoBehaviour
     
     public GameObject target;
 
-    public Vector3 offSet;
+    private Vector3 offSet;
     // Start is called before the first frame update
     void Start()
     {
-        
+        offSet = target.transform.position - transform.position;
     }
 
     // Update is called once per frame
