@@ -6,6 +6,7 @@ public class SizeManager : MonoBehaviour
 {
     public static SizeManager instace;
 
+    public  Vector3 globalPositionOfContact;
     public float xScale,currentScale;
     //how fast it grows 
     public float growthRate;
@@ -21,7 +22,10 @@ public class SizeManager : MonoBehaviour
         xScale = gameObject.transform.localScale.x;
         currentScale = xScale;
     }
-   
+  public void OnCollisionEnter(Collision collision){
+      if(collision.transform.tag=="spike")
+      globalPositionOfContact = collision.contacts[0].point;
+   }
     // Update is called once per frame
       void FixedUpdate()
     {

@@ -7,8 +7,9 @@ public class CharacterHandler : MonoBehaviour
     public bool hit;
     void OnTriggerEnter(Collider collider){
         if(collider.transform.tag=="add"){
-                    hit=true;
-SizeManager.instace.Grow();}
+        Destroy(collider.gameObject);
+        hit=true;
+        SizeManager.instace.Grow();}
     }
     // Start is called before the first frame update
     void Start()

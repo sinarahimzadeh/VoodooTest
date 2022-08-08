@@ -8,6 +8,7 @@ TagManager:
   - rail
   - Character
   - add
+  - spike
   layers:
   - Default
   - TransparentFX
