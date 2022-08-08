@@ -33,7 +33,7 @@ public class SizeManager : MonoBehaviour
         {
             if (xScale-currentScale<=maxInc)
             {
-                gameObject.transform.localScale=new Vector3(xScale,transform.localScale.y,transform.localScale.z);
+                gameObject.transform.localScale=new Vector3(transform.localScale.x,xScale,transform.localScale.z);
                 xScale += growthRate;
             }
             else
@@ -48,7 +48,7 @@ public class SizeManager : MonoBehaviour
         {
             if (currentScale-xScale<=maxInc)
             {
-                gameObject.transform.localScale=new Vector3(xScale,transform.localScale.y,transform.localScale.z);
+                gameObject.transform.localScale=new Vector3( transform.localScale.x,xScale,transform.localScale.z);
                 xScale -= growthRate;
             }
             else
