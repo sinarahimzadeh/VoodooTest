@@ -1,20 +1,22 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using System;
 public class SizeManager : MonoBehaviour
 {
     public static SizeManager instace;
-
-    public  Vector3 globalPositionOfContact;
-    public float xScale,currentScale;
+    public Transform prefab;
+    private GameObject cylender ; 
+    public float shrinkCm;
+    public  Vector3 globalPositionOfContact,hitLocation;
+    public float xScale,currentScale,shrinkSide;
     //how fast it grows 
-    public float growthRate;
+    public float growthRate,shrinkRate;
     //how much the pile increases each time
-    public float maxInc;
+    public float maxInc,relocateSpeed;
 
     //determines wether the pile should grow or shrink
-    public bool grow,shrink;
+    public bool grow,shrink,wtf;
     // Start is called before the first frame update
     void Start()
     {
@@ -23,8 +25,25 @@ public class SizeManager : MonoBehaviour
         currentScale = xScale;
     }
   public void OnCollisionEnter(Collision collision){
-      if(collision.transform.tag=="spike")
+      if(collision.transform.tag=="spike"){
+        Destroy(collision.transform.gameObject.GetComponent<Collider>());
+
+      hitLocation = collision.transform.position;
       globalPositionOfContact = collision.contacts[0].point;
+      if(transform.position.x<= globalPositionOfContact.x)
+      {
+        shrinkCm = gameObject.transform.position.x+gameObject.transform.localScale.x-globalPositionOfContact.x;
+        shrinkSide = -1;
+      }
+      else{
+          shrinkCm =Math.Abs( gameObject.transform.position.x-gameObject.transform.localScale.x-globalPositionOfContact.x);
+
+          shrinkSide=1;
+          }
+
+      //  Time.timeScale = 0;
+    Shrink();
+    }
    }
     // Update is called once per frame
       void FixedUpdate()
@@ -33,7 +52,7 @@ public class SizeManager : MonoBehaviour
         {
             if (xScale-currentScale<=maxInc)
             {
-                gameObject.transform.localScale=new Vector3(transform.localScale.x,xScale,transform.localScale.z);
+                gameObject.transform.localScale=new Vector3(xScale,transform.localScale.y,transform.localScale.z);
                 xScale += growthRate;
             }
             else
@@ -46,15 +65,18 @@ public class SizeManager : MonoBehaviour
         
         if (shrink)
         {
-            if (currentScale-xScale<=maxInc)
+            if (gameObject.transform.position.x>=0)
             {
-                gameObject.transform.localScale=new Vector3( transform.localScale.x,xScale,transform.localScale.z);
-                xScale -= growthRate;
+               transform.Translate(-transform.right*relocateSpeed*Time.deltaTime);
+            }
+            else if (gameObject.transform.position.x<0)
+            {
+                transform.Translate(transform.right*relocateSpeed*Time.deltaTime);
+
             }
             else
             {
                 shrink = false;
-                currentScale = xScale;
             }
         
         }
@@ -69,7 +91,14 @@ public class SizeManager : MonoBehaviour
     public void Shrink()
     {
         shrink = true;
+        gameObject.transform.localScale=new Vector3(transform.localScale.x-(shrinkCm/2),transform.localScale.y,transform.localScale.z);
+        gameObject.transform.position = new Vector3(transform.position.x+shrinkCm/2*shrinkSide,transform.position.y,transform.position.z);
+         if(shrinkSide==-1)  cylender= Instantiate(prefab, new Vector3(hitLocation.x+shrinkCm/2,hitLocation.y,hitLocation.z),  Quaternion.Euler (0f, 0f, 90f)).gameObject;
+        if(shrinkSide==1)  cylender= Instantiate(prefab, new Vector3(hitLocation.x-shrinkCm/2,hitLocation.y,hitLocation.z),  Quaternion.Euler (0f, 0f, 90f)).gameObject;
 
+        cylender.transform.localScale = new Vector3(transform.localScale.y,shrinkCm/2,transform.localScale.z);
+        cylender.GetComponent<Rigidbody>().AddForce(transform.up*-1000);
+   
     }
 
 }

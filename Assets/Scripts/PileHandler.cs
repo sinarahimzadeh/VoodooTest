@@ -11,7 +11,7 @@ private bool fall;
 public bool move;
 [SerializeField] private Vector3 mousePos;
 [SerializeField] private float fieldSpeed,fieldmax,fieldmin;
-public float maxY,maxX,currentY,upRate,forwardSpeed ; 
+public float maxY,maxX,currentY,upRate,forwardSpeed,sideSpeed ; 
 public static PileHandler instance; 
 [SerializeField] private float force;
     public enum States
@@ -53,7 +53,14 @@ public static PileHandler instance;
         if (Input.GetMouseButton(0))
             {
             
-               
+                if (Input.mousePosition.x-mousePos.x>10)
+                {
+                    moveSideWays(1);
+                }
+                else if(mousePos.x-Input.mousePosition.x>10)
+                {
+                    moveSideWays(-1);
+                }
                 if(mousePos.y-Input.mousePosition.y>maxYdistance){
             yDistance =Input.mousePosition.y-mousePos.y;
             }
@@ -82,9 +89,12 @@ public static PileHandler instance;
          rigidbody.AddForce(Vector3.up*force*Time.deltaTime);
          }
 
-void _moveForward()
+ void moveSideWays(int side)
+    {
+        transform.Translate(side*sideSpeed*Time.deltaTime,0,0);
+    }
+     void _moveForward()
     {
         transform.Translate( transform.forward * forwardSpeed * Time.deltaTime);
     }
- 
 }
