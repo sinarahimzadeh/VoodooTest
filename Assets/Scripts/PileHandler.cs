@@ -84,9 +84,6 @@ public static PileHandler instance;
     }
 
     public void jump(){
-        yDistance=0;
-        states=States.inAir;
-         rigidbody.AddForce(Vector3.up*force*Time.deltaTime);
          }
 
  void moveSideWays(int side)
