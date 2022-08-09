@@ -29,5 +29,10 @@ public class CharacterHandler : MonoBehaviour
         {
             _animator.enabled = true;
         }
+        else
+        {
+            _animator.enabled = false;
+
+        }
     }
 }
