@@ -16,10 +16,14 @@ public class ForwardMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.position =
-            transform.position +
-            Vector3.forward *
-            speed *
-            Time.deltaTime;
+        if (GameManager.shared.move)
+        {
+            transform.position =
+                transform.position +
+                Vector3.forward *
+                speed *
+                Time.deltaTime;
+        }
+
     }
 }

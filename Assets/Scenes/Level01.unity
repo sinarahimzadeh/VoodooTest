@@ -410,6 +410,11 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 191635765}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!95 &212631411 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 2864467226897860161, guid: acdeebd177a6949ca88f605f414f9071, type: 3}
+  m_PrefabInstance: {fileID: 1407319541}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &245261327 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3240895097929604364, guid: d3d17a7cbcbbd43febced21e102fda55, type: 3}
@@ -862,6 +867,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isTestingOnDesktop: 1
+  move: 0
 --- !u!4 &676772607
 Transform:
   m_ObjectHideFlags: 0
@@ -1299,6 +1305,7 @@ GameObject:
   - component: {fileID: 1073212897}
   - component: {fileID: 1073212898}
   - component: {fileID: 1073212899}
+  - component: {fileID: 1073212900}
   m_Layer: 0
   m_Name: PlayerSystem
   m_TagString: Untagged
@@ -1343,12 +1350,27 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1073212896}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 345764ebc442841e7992abb79cdde69e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 5
+--- !u!114 &1073212900
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1073212896}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba3b067c3e5cb0f4e982080eaf71c843, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  leftBoundry: -11
+  rightBoundry: 11
+  sideSpeed: 10
 --- !u!1 &1132529786
 GameObject:
   m_ObjectHideFlags: 0
@@ -1743,7 +1765,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2864467226897860161, guid: acdeebd177a6949ca88f605f414f9071, type: 3}
       propertyPath: m_Enabled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3493811385741160208, guid: acdeebd177a6949ca88f605f414f9071, type: 3}
       propertyPath: m_LocalRotation.w
@@ -2327,6 +2349,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hit: 0
+  _animator: {fileID: 212631411}
 --- !u!54 &1851602606
 Rigidbody:
   m_ObjectHideFlags: 0

@@ -5,10 +5,16 @@ using UnityEngine;
 public class CharacterHandler : MonoBehaviour
 {
     public bool hit;
+    [SerializeField] private Animator _animator;
     void OnTriggerEnter(Collider collider){
-            if(collider.transform.tag=="add"){
-                    hit=true;
-    SizeManager.instace.Grow();}
+                   if(collider.transform.tag=="add"){
+                    hit=true;  
+                    SizeManager.instace.Grow();}
+
+                   if (collider.transform.tag=="win")
+                   {
+                       GameManager.shared.Win();
+                   }
     }
     // Start is called before the first frame update
     void Start()
@@ -19,6 +25,9 @@ public class CharacterHandler : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (GameManager.shared.move)
+        {
+            _animator.enabled = true;
+        }
     }
 }
