@@ -9,6 +9,9 @@ TagManager:
   - Character
   - add
   - spike
+  - win
+  - pile
+  - gate
   layers:
   - Default
   - TransparentFX
