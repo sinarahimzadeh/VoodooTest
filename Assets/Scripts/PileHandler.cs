@@ -9,25 +9,10 @@ using UnityEngine;
      {
          if (collision.transform.tag=="gate")
          {
-             counter++;
-            // Time.timeScale = 0;
+             GameManager.shared.Lose();
+
          }
      }
      
-     void OnCollisionExit(Collision collision)
-     {
-         if (collision.transform.tag=="gate"&&counter<2)
-         {
-             counter=0;
-             // Time.timeScale = 0;
-         }
-     }
-
-     void Update()
-     {
-         if (counter>=2)
-         {
-             GameManager.shared.Lose();
-         }
-     }
+     
  }

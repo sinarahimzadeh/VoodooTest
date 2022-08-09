@@ -25,14 +25,15 @@ public class CharacterHandler : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (GameManager.shared.lose)
+        {
+            _animator.SetBool("die",true);
+
+        }
         if (GameManager.shared.move)
         {
             _animator.enabled = true;
         }
-        else
-        {
-            _animator.enabled = false;
-
-        }
+       
     }
 }

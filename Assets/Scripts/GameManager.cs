@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     public bool isTestingOnDesktop = false;
-    public bool move;
+    public bool move,lose;
     [SerializeField] private GameObject panel;
     public static GameManager shared;
     // Start is called before the first frame update
@@ -23,13 +23,20 @@ public class GameManager : MonoBehaviour
    {
 
        move = false;
-       panel.SetActive(true);
+       lose = true;
+       Invoke("resetPanel",1);
    }
 
    public void Win()
    {
        move = false;
         panel.SetActive(true);
+   }
+
+   void resetPanel()
+   {
+       panel.SetActive(true);
+
    }
 
    public void Reset()
@@ -40,7 +47,7 @@ public class GameManager : MonoBehaviour
    // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0)&&!lose)
         {
             Move();
         }
