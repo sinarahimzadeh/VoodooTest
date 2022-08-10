@@ -101,7 +101,7 @@ public class SizeManager : MonoBehaviour
         gameObject.transform.position = new Vector3(transform.position.x+shrinkCm/2*shrinkSide,transform.position.y,transform.position.z);
          if(shrinkSide==-1)  cylender= Instantiate(prefab, new Vector3(hitLocation.x+shrinkCm/2,hitLocation.y,hitLocation.z),  Quaternion.Euler (0f, 0f, 90f)).gameObject;
         if(shrinkSide==1)  cylender= Instantiate(prefab, new Vector3(hitLocation.x-shrinkCm/2,hitLocation.y,hitLocation.z),  Quaternion.Euler (0f, 0f, 90f)).gameObject;
-
+cylender.transform.SetParent(GameObject.Find("Level").transform);
         cylender.transform.localScale = new Vector3(transform.localScale.y,shrinkCm/2,transform.localScale.z);
         cylender.GetComponent<Rigidbody>().AddForce(new Vector3(-shrinkSide/4,0.2f,0.7f)*cutForce,ForceMode.Impulse);
    
