@@ -32,6 +32,11 @@ public class CharacterHandler : MonoBehaviour
             _animator.SetBool("die",true);
 
         }
+        if (GameManager.shared.win)
+        {
+            _animator.SetBool("win",true);
+
+        }
         if (GameManager.shared.move)
         {
             _animator.enabled = true;
