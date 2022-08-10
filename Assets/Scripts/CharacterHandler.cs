@@ -9,7 +9,9 @@ public class CharacterHandler : MonoBehaviour
     void OnTriggerEnter(Collider collider){
                    if(collider.transform.tag=="add"){
                     hit=true;  
-                    SizeManager.instace.Grow();}
+                    SizeManager.instace.Grow();
+                    Destroy(collider.transform.gameObject);
+                   }
 
                    if (collider.transform.tag=="win")
                    {
