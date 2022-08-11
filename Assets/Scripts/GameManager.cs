@@ -6,7 +6,10 @@ public class GameManager : MonoBehaviour
 {
     public bool isTestingOnDesktop = false;
     public bool move,lose,win;
-    [SerializeField] private GameObject panel,failedImage,winImage;
+    [SerializeField] private GameObject
+        panel,
+        failedImage,
+        winImage;
     public static GameManager shared;
     // Start is called before the first frame update
     void Start()
@@ -33,7 +36,7 @@ public class GameManager : MonoBehaviour
        move = false;
        winImage.SetActive(true);
        win = true;
-        panel.SetActive(true);
+       panel.SetActive(true);
    }
 
    void resetPanel()

@@ -25,8 +25,7 @@ public class HorizontalMovement : MonoBehaviour
             transform.position = new Vector3(
                          transform.position.x +  speed * horizentalAxis * multiplier,
                          transform.position.y,
-                         transform.position.z
-                    );
+                         transform.position.z);
         }
         else
         {
@@ -38,8 +37,7 @@ public class HorizontalMovement : MonoBehaviour
                     transform.position = new Vector3(
                          transform.position.x + touch.deltaPosition.x * speed * multiplier,
                          transform.position.y,
-                         transform.position.z
-                    );
+                         transform.position.z);
                 }
             }
         }

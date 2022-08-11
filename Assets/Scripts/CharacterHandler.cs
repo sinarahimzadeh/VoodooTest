@@ -4,27 +4,8 @@ using UnityEngine;
 
 public class CharacterHandler : MonoBehaviour
 {
-    public bool hit;
     [SerializeField] private Animator _animator;
-    void OnTriggerEnter(Collider collider){
-                   if(collider.transform.tag=="add"){
-                    hit=true;  
-                    SizeManager.instace.Grow();
-                    Destroy(collider.transform.gameObject);
-                   }
 
-                   if (collider.transform.tag=="win")
-                   {
-                       GameManager.shared.Win();
-                   }
-    }
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
     void Update()
     {
         if (GameManager.shared.lose)
@@ -43,4 +24,19 @@ public class CharacterHandler : MonoBehaviour
         }
        
     }
+    void OnTriggerEnter(Collider collider)
+    {
+        if (collider.transform.tag == "add")
+        {
+            SizeManager.instace.Grow();
+            Destroy(collider.transform.gameObject);
+        }
+
+        else if (collider.transform.tag == "win")
+        {
+            GameManager.shared.Win();
+        }
+    }
+
+    
 }
