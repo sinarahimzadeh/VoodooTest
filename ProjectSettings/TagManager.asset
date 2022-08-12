@@ -12,6 +12,7 @@ TagManager:
   - win
   - pile
   - gate
+  - bonus
   layers:
   - Default
   - TransparentFX
