@@ -33,10 +33,19 @@ public class GameManager : MonoBehaviour
 
    public void Win()
    {
-       move = false;
-       winImage.SetActive(true);
-       win = true;
-       panel.SetActive(true);
+        if (SceneManager.GetActiveScene().buildIndex == SceneManager.sceneCount )
+        {
+            move = false;
+            winImage.SetActive(true);
+            win = true;
+            panel.SetActive(true);
+        }
+        else
+        {
+            SceneManager.LoadScene((SceneManager.GetActiveScene().buildIndex) + 1);
+        }
+       
+     
    }
 
    void resetPanel()
