@@ -6,6 +6,7 @@ public class GameManager : MonoBehaviour
 {
     public bool isTestingOnDesktop = false;
     public bool move,lose,win;
+
     [SerializeField] private GameObject
         panel,
         failedImage,
@@ -24,8 +25,8 @@ public class GameManager : MonoBehaviour
 
    public void Lose()
    {
-
-       move = false;
+    
+        move = false;
        lose = true;
        failedImage.SetActive(true);
        Invoke("resetPanel",1);
@@ -33,7 +34,7 @@ public class GameManager : MonoBehaviour
 
    public void Win()
    {
-        if (SceneManager.GetActiveScene().buildIndex == SceneManager.sceneCount )
+        if (SceneManager.GetActiveScene().buildIndex == SceneManager.sceneCountInBuildSettings)
         {
             move = false;
             winImage.SetActive(true);
@@ -56,10 +57,20 @@ public class GameManager : MonoBehaviour
 
    public void Reset()
    {
-       SceneManager.LoadScene(0);
-   }
 
-   // Update is called once per frame
+        if (SceneManager.GetActiveScene().buildIndex == SceneManager.sceneCountInBuildSettings)
+        {
+            SceneManager.LoadScene(0);
+        }
+        else
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+
+        }
+        //   SceneManager.LoadScene(0);
+    }
+
+    // Update is called once per frame
     void Update()
     {
         if (Input.GetMouseButtonDown(0)&&!lose&&!win)

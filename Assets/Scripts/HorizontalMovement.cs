@@ -7,7 +7,7 @@ public class HorizontalMovement : MonoBehaviour
     // Start is called before the first frame update
     [SerializeField] private float speed;
 
-    private float multiplier = 0.1f;
+    private float multiplier = 2f;
     private Touch touch;
 
     void Start()
@@ -34,10 +34,15 @@ public class HorizontalMovement : MonoBehaviour
                 touch = Input.GetTouch(0);
                 if (touch.phase == TouchPhase.Moved)
                 {
-                    transform.position = new Vector3(
-                         transform.position.x + touch.deltaPosition.x * speed * multiplier,
-                         transform.position.y,
-                         transform.position.z);
+                    //transform.position = new Vector3(
+                    //     transform.position.x + touch.deltaPosition.x * speed * multiplier,
+                    //     transform.position.y,
+                    //     transform.position.z);
+
+                    transform.Translate(new Vector3(
+                        touch.deltaPosition.x *Time.deltaTime* speed * multiplier,
+                        0,
+                        0));
                 }
             }
         }

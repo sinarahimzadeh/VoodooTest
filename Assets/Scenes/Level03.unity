@@ -2558,7 +2558,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3cf141cc57d3f4bd68a2c72528df721a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isTestingOnDesktop: 1
+  isTestingOnDesktop: 0
   move: 0
   lose: 0
   win: 0
@@ -5240,7 +5240,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1475645432
 RectTransform:
   m_ObjectHideFlags: 0
