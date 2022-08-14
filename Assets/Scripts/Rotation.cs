@@ -16,9 +16,10 @@ public class Rotation : MonoBehaviour
         //    )
         //    .SetLoops(-1,LoopType.Incremental).SetEase(Ease.Linear);
         transform.DOLocalRotate(rotation,
-             duration
+             duration,RotateMode.FastBeyond360
              )
-             .SetLoops(-1, LoopType.Incremental).SetEase(Ease.Linear);
+             .SetLoops(-1).SetEase(Ease.Linear);
+
     }
 
     // Update is called once per frame
