@@ -6,7 +6,8 @@ public class BonusPlatform : MonoBehaviour
 {
     // Start is called before the first frame update
     [SerializeField] GameObject[] particles;
-    
+    public Transform gate1,gate2; 
+
     void Start()
     {
     }
