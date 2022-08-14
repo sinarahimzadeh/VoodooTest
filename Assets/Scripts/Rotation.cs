@@ -10,11 +10,15 @@ public class Rotation : MonoBehaviour
     [SerializeField] private float duration;
     void Start()
     {
-        transform.DORotate(
-            rotation,
-            duration,
-            RotateMode.FastBeyond360)
-            .SetLoops(-1);
+        //transform.DORotate(
+        //    rotation,
+        //    duration
+        //    )
+        //    .SetLoops(-1,LoopType.Incremental).SetEase(Ease.Linear);
+        transform.DOLocalRotate(rotation,
+             duration
+             )
+             .SetLoops(-1, LoopType.Incremental).SetEase(Ease.Linear);
     }
 
     // Update is called once per frame

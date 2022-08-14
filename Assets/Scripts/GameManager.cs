@@ -5,9 +5,10 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     public bool isTestingOnDesktop = false;
-    public bool move,lose,win;
+    public bool move, lose, win;
 
-    [SerializeField] private GameObject
+    [SerializeField]
+    private GameObject
         panel,
         failedImage,
         winImage;
@@ -18,22 +19,22 @@ public class GameManager : MonoBehaviour
         shared = this;
     }
 
-   public void Move()
+    public void Move()
     {
         move = true;
     }
 
-   public void Lose()
-   {
-    
-        move = false;
-       lose = true;
-       failedImage.SetActive(true);
-       Invoke("resetPanel",1);
-   }
+    public void Lose()
+    {
 
-   public void Win()
-   {
+        move = false;
+        lose = true;
+        failedImage.SetActive(true);
+        Invoke("resetPanel", 1);
+    }
+
+    public void Win()
+    {
         if (SceneManager.GetActiveScene().buildIndex == SceneManager.sceneCountInBuildSettings)
         {
             move = false;
@@ -45,18 +46,18 @@ public class GameManager : MonoBehaviour
         {
             SceneManager.LoadScene((SceneManager.GetActiveScene().buildIndex) + 1);
         }
-       
-     
-   }
 
-   void resetPanel()
-   {
-       panel.SetActive(true);
 
-   }
+    }
 
-   public void Reset()
-   {
+    void resetPanel()
+    {
+        panel.SetActive(true);
+
+    }
+
+    public void Reset()
+    {
 
         if (SceneManager.GetActiveScene().buildIndex == SceneManager.sceneCountInBuildSettings)
         {
@@ -67,13 +68,12 @@ public class GameManager : MonoBehaviour
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
 
         }
-        //   SceneManager.LoadScene(0);
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButtonDown(0)&&!lose&&!win)
+        if (Input.GetMouseButtonDown(0) && !lose && !win)
         {
             Move();
         }
