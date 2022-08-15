@@ -6,6 +6,7 @@ public class CameraFollow : MonoBehaviour
 {
     
     public GameObject target;
+    public Transform character;
     private Vector3 offSet;
 
     void Start()
@@ -15,7 +16,7 @@ public class CameraFollow : MonoBehaviour
     void LateUpdate()
     {
         transform.position = new Vector3(
-            transform.position.x,
+            character.position.x,
             target.transform.position.y-offSet.y,
             target.transform.position.z-offSet.z);
     }

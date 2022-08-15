@@ -22,9 +22,9 @@ Material:
   m_PrefabAsset: {fileID: 0}
   m_Name: coin_gold_coin_round 1
   m_Shader: {fileID: 4800000, guid: 4b496d2388081e547bcf06e5ad9e5e3f, type: 3}
-  m_ShaderKeywords: TCP2_REFLECTIONS_FRESNEL TCP2_RIM_LIGHTING_LIGHTMASK TCP2_SHADOW_LIGHT_COLOR
-    TCP2_UV_NORMALS_FULL
-  m_LightmapFlags: 2
+  m_ShaderKeywords: TCP2_RAMP_BANDS TCP2_REFLECTIONS_FRESNEL TCP2_RIM_LIGHTING_LIGHTMASK
+    TCP2_UV_NORMALS_FULL _RECEIVE_SHADOWS_OFF
+  m_LightmapFlags: 0
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: -1
@@ -119,13 +119,13 @@ Material:
     - _DirectIntensityOutline: 1
     - _DstBlend: 0
     - _EmissionChannel: 4
-    - _FresnelMax: 1.5
-    - _FresnelMin: 0
+    - _FresnelMax: 1.64
+    - _FresnelMin: 0.5
     - _GlossMapScale: 1
     - _Glossiness: 0.602
     - _GlossinessSource: 0
     - _GlossyReflections: 1
-    - _IndirectIntensity: 1
+    - _IndirectIntensity: 0.693
     - _IndirectIntensityOutline: 0
     - _MatCapMaskChannel: 0
     - _MatCapType: 0
@@ -133,8 +133,8 @@ Material:
     - _Mode: 0
     - _NormalsSource: 0
     - _NormalsUVType: 0
-    - _OcclusionChannel: 0
-    - _OcclusionStrength: 1
+    - _OcclusionChannel: 1
+    - _OcclusionStrength: 0.069
     - _OutlineLightingType: 0
     - _OutlineLightingTypeURP: 0
     - _OutlineMaxWidth: 1
@@ -145,24 +145,24 @@ Material:
     - _OutlineWidth: 1
     - _Parallax: 0.02
     - _QueueOffset: 0
-    - _RampBands: 2
-    - _RampBandsSmoothing: 0.1
+    - _RampBands: 14
+    - _RampBandsSmoothing: 1
     - _RampOffset: 0
     - _RampScale: 1
     - _RampSmooth: 0.1
     - _RampSmoothOtherLights: 0.5
-    - _RampSmoothing: 1
-    - _RampThreshold: 0.551
+    - _RampSmoothing: 0.921
+    - _RampThreshold: 0.702
     - _RampThresholdOtherLights: 0.5
-    - _RampType: 0
+    - _RampType: 2
     - _ReceiveShadows: 0
-    - _ReceiveShadowsOff: 1
+    - _ReceiveShadowsOff: 0
     - _ReflectionMapType: 0
-    - _ReflectionSmoothness: 0.5
+    - _ReflectionSmoothness: 1
     - _RenderingMode: 0
     - _RimMax: 1.12
     - _RimMin: 0.34
-    - _ShadowColorLightAtten: 1
+    - _ShadowColorLightAtten: 0
     - _Shadow_HSV_H: 0
     - _Shadow_HSV_S: 0
     - _Shadow_HSV_V: -0.067
@@ -173,9 +173,9 @@ Material:
     - _SmoothnessTextureChannel: 0
     - _SpecSource: 0
     - _SpecularHighlights: 1
-    - _SpecularMapType: 0
-    - _SpecularRoughness: 0.5
-    - _SpecularToonSize: 0.25
+    - _SpecularMapType: 1
+    - _SpecularRoughness: 0.218
+    - _SpecularToonSize: 0.013
     - _SpecularToonSmoothness: 0.05
     - _SpecularType: 0
     - _SrcBlend: 1
@@ -204,9 +204,9 @@ Material:
     - _HColor: {r: 1, g: 1, b: 1, a: 1}
     - _MatCapColor: {r: 1, g: 1, b: 1, a: 1}
     - _OutlineColor: {r: 0, g: 0, b: 0, a: 1}
-    - _ReflectionColor: {r: 1, g: 1, b: 1, a: 1}
+    - _ReflectionColor: {r: 1, g: 0.7339252, b: 0, a: 1}
     - _RimColor: {r: 0.990566, g: 0.9558851, b: 0.014017418, a: 0.6}
-    - _SColor: {r: 0.735849, g: 0.735849, b: 0.735849, a: 1}
+    - _SColor: {r: 1, g: 0.6457232, b: 0, a: 1}
     - _SpecColor: {r: 1, g: 1, b: 1, a: 1}
-    - _SpecularColor: {r: 0.75, g: 0.75, b: 0.75, a: 1}
+    - _SpecularColor: {r: 1.8443027, g: 1.3904691, b: 0, a: 1}
   m_BuildTextureStacks: []
