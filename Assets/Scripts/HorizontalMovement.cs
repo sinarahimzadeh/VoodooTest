@@ -16,7 +16,7 @@ public class HorizontalMovement : MonoBehaviour
     }
 
     // Update is called once per frame
-    void LateUpdate()
+    void FixedUpdate()
     {
         if (GameManager.shared.isTestingOnDesktop)
         {

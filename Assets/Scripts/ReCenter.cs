@@ -10,6 +10,10 @@ public class ReCenter : MonoBehaviour
     [SerializeField] float duration;
     [SerializeField] float delay;
 
+    private void Start()
+    {
+        DoReCenter();
+    }
     private void LateUpdate()
     {
         if (playerTransform.position.x != transform.position.x) {
