@@ -16,6 +16,7 @@ public class ForwardMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        speed = GameManager.shared.speed;
         if (GameManager.shared.move)
         {
             transform.position =

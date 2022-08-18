@@ -2283,6 +2283,11 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 5987341420139942501, guid: 4231c532cafd24b778ff40ac270565da, type: 3}
   m_PrefabInstance: {fileID: 5987341419683531926}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &669149031 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8171791753854022112, guid: c0eb1aab5e2382645a79564ca54011cd, type: 3}
+  m_PrefabInstance: {fileID: 1545382905272447254}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &676772606 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 4978597006585414970, guid: bfa6a71bb3ee348888832598cc0a6f5d, type: 3}
@@ -2760,6 +2765,49 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 1163023037761631266, guid: b56790c702290431694395b323dea20c, type: 3}
   m_PrefabInstance: {fileID: 1300957234}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &766997073
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 766997075}
+  - component: {fileID: 766997074}
+  m_Layer: 0
+  m_Name: OniCollisionWorld
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &766997074
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 766997073}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d02d25c24c8574316883c920912e4fdb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &766997075
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 766997073}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 11
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &771638075
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2835,49 +2883,6 @@ Camera:
   m_CorrespondingSourceObject: {fileID: 9025717483321513116, guid: fac737590ba17486d897e56cd43e2607, type: 3}
   m_PrefabInstance: {fileID: 9025717483967653558}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &828539765
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 828539767}
-  - component: {fileID: 828539766}
-  m_Layer: 0
-  m_Name: OniCollisionWorld
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &828539766
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 828539765}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d02d25c24c8574316883c920912e4fdb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!4 &828539767
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 828539765}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 11
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &876955106
 GameObject:
   m_ObjectHideFlags: 0
@@ -5031,6 +5036,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5dd0c69f19ad64ec885835ef7b62aaca, type: 3}
+--- !u!1 &1562329033 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2537783713617793880, guid: c0eb1aab5e2382645a79564ca54011cd, type: 3}
+  m_PrefabInstance: {fileID: 1545382905272447254}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1562477992
 GameObject:
   m_ObjectHideFlags: 0
@@ -7102,6 +7112,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1545382907185897550, guid: c0eb1aab5e2382645a79564ca54011cd, type: 3}
+      propertyPath: force
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 1545382907185897550, guid: c0eb1aab5e2382645a79564ca54011cd, type: 3}
+      propertyPath: breakable
+      value: 
+      objectReference: {fileID: 1552989246825897751, guid: fb63a7302afca5743af4171dc572f9c0, type: 3}
+    - target: {fileID: 1545382907185897550, guid: c0eb1aab5e2382645a79564ca54011cd, type: 3}
+      propertyPath: feverMode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1545382907185897550, guid: c0eb1aab5e2382645a79564ca54011cd, type: 3}
+      propertyPath: fireparticle1
+      value: 
+      objectReference: {fileID: 1562329033}
+    - target: {fileID: 1545382907185897550, guid: c0eb1aab5e2382645a79564ca54011cd, type: 3}
+      propertyPath: fireparticle2
+      value: 
+      objectReference: {fileID: 669149031}
     - target: {fileID: 1851863733777951391, guid: c0eb1aab5e2382645a79564ca54011cd, type: 3}
       propertyPath: m_Name
       value: Character
@@ -7109,6 +7139,14 @@ PrefabInstance:
     - target: {fileID: 1851863733777951391, guid: c0eb1aab5e2382645a79564ca54011cd, type: 3}
       propertyPath: m_TagString
       value: Character
+      objectReference: {fileID: 0}
+    - target: {fileID: 2537783713617793880, guid: c0eb1aab5e2382645a79564ca54011cd, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8171791753854022112, guid: c0eb1aab5e2382645a79564ca54011cd, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c0eb1aab5e2382645a79564ca54011cd, type: 3}
@@ -7127,6 +7165,10 @@ PrefabInstance:
       propertyPath: panel
       value: 
       objectReference: {fileID: 1475645431}
+    - target: {fileID: 4978597006585414970, guid: bfa6a71bb3ee348888832598cc0a6f5d, type: 3}
+      propertyPath: speed
+      value: -20
+      objectReference: {fileID: 0}
     - target: {fileID: 4978597006585414970, guid: bfa6a71bb3ee348888832598cc0a6f5d, type: 3}
       propertyPath: winImage
       value: 

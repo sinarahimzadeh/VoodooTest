@@ -6,7 +6,7 @@ public class GameManager : MonoBehaviour
 {
     public bool isTestingOnDesktop = false;
     public bool move, lose, win;
-
+    public float speed;
     [SerializeField]
     private GameObject
         panel,
