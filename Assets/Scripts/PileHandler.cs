@@ -39,7 +39,7 @@ using DG.Tweening;
 
      void Update()
      {
-         if (Input.GetMouseButtonDown(1))
+         if (Input.GetKeyDown(KeyCode.Space))
          {
              feverMode = true;
              GameManager.shared.speed = -30;
