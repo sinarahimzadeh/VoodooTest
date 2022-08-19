@@ -5,18 +5,21 @@ using UnityEngine.SceneManagement;
 public class GameManager : MonoBehaviour
 {
     public bool isTestingOnDesktop = false;
-    public bool move, lose, win;
-    public float speed;
+    public bool move, lose, win,feverMode;
+    public float speed, feverModeSpeed, initialSpeed;
     [SerializeField]
     private GameObject
         panel,
         failedImage,
         winImage;
     public static GameManager shared;
+    [SerializeField] private GameObject fireparticle1, fireparticle2;
+
     // Start is called before the first frame update
     void Start()
     {
         shared = this;
+        initialSpeed = speed;
     }
 
     public void Move()
@@ -26,6 +29,7 @@ public class GameManager : MonoBehaviour
 
     public void Lose()
     {
+        NormalMode();
 
         move = false;
         lose = true;
@@ -69,7 +73,22 @@ public class GameManager : MonoBehaviour
 
         }
     }
+ public   void FeverMove()
+    {
+        feverMode = true; 
+        speed = feverModeSpeed;
+        fireparticle1.SetActive(true);
+        fireparticle2.SetActive(true);
+        // GameManager.shared.speed
+    }
 
+   public void NormalMode()
+    {
+        feverMode = false;
+         speed =initialSpeed;
+        fireparticle1.SetActive(false);
+        fireparticle2.SetActive(false);
+    }
     // Update is called once per frame
     void Update()
     {

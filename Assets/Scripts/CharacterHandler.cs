@@ -31,6 +31,11 @@ public class CharacterHandler : MonoBehaviour
             SizeManager.instace.Grow();
             Destroy(collider.transform.gameObject);
         }
+        if (collider.transform.tag == "dumbpolice")
+        {
+            GameManager.shared.Lose();
+
+        }
 
         else if (collider.transform.tag == "win")
         {

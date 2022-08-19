@@ -11,21 +11,22 @@ using DG.Tweening;
      
      [SerializeField] private int counter;
      [SerializeField] private float force;
+     [SerializeField] private float fevermodeTime;
      public bool feverMode;
      [SerializeField] private Transform breakable,fractured;
-     [SerializeField] private GameObject fireparticle1, fireparticle2;
      void OnCollisionEnter(Collision collision)
      {
          if (collision.transform.tag=="gate")
          {
-             if (feverMode)
+             if (GameManager.shared.feverMode)
              {
                  Destroy(collision.transform.gameObject);
                  fractured = Instantiate(breakable,new Vector3( collision.transform.position.x, collision.transform.position.y-2.5f, collision.transform.position.z), quaternion.identity);
                  fractured.SetParent(GameObject.Find("Level").transform);
+                 
                  foreach (Transform i in fractured)
                  {
-                     i.GetComponent<Rigidbody>().AddForce(new Vector3(Random.Range(-force,force),Random.Range(-force,force),Random.Range(-force,force)));
+                     i.GetComponent<Rigidbody>().AddForce(new Vector3(Random.Range(-force,force),Random.Range(-force,force),Random.Range(0,force*5)));
                  }
              }
              else
@@ -35,32 +36,19 @@ using DG.Tweening;
              }
 
         }
+         if (collision.transform.tag=="dumbpolice")
+         {
+          GameManager.shared.FeverMove();
+          GameManager.shared.Invoke("NormalMode",fevermodeTime);
+
+         }
     }
 
-     void Update()
-     {
-         if (Input.GetKeyDown(KeyCode.Space))
-         {
-             feverMode = true;
-             GameManager.shared.speed = -30;
-             fireparticle1.SetActive(true);
-             fireparticle2.SetActive(true);
-         }
-     }
 
-     void OnTriggerEnter(Collider collider)
-     {
-         if (collider.transform.tag=="dumbpolice")
-         {
-             FeverMove();
-         }
-     }
 
-     void FeverMove()
-     {
-         feverMode = true;
-        // GameManager.shared.speed
-     }
+  
+
+  
 
 
 

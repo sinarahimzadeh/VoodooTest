@@ -13,6 +13,7 @@ TagManager:
   - pile
   - gate
   - bonus
+  - dumbpolice
   layers:
   - Default
   - TransparentFX
