@@ -40,6 +40,8 @@ using DG.Tweening;
          {
           GameManager.shared.FeverMove();
           GameManager.shared.Invoke("NormalMode",fevermodeTime);
+            collision.gameObject.transform.DOMoveY(5, 2f);
+            collision.gameObject.GetComponentInChildren<Animator>().SetBool("isDead",true);
 
          }
     }
