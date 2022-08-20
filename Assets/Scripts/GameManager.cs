@@ -2,6 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using TMPro;
+using DG.Tweening;
 public class GameManager : MonoBehaviour
 {
     public bool isTestingOnDesktop = false;
@@ -14,7 +16,11 @@ public class GameManager : MonoBehaviour
         winImage;
     public static GameManager shared;
     [SerializeField] private GameObject fireparticle1, fireparticle2;
-
+    [SerializeField] HorizontalMovement horizontalMovement;
+    [SerializeField] TMPro.TextMeshProUGUI coinText;
+    public int collectedCoin = 0;
+    public GameObject uiCoin;
+    public ParticleSystem uiCoinParticle;
     // Start is called before the first frame update
     void Start()
     {
@@ -26,7 +32,12 @@ public class GameManager : MonoBehaviour
     {
         move = true;
     }
-
+    public void CoinCollected() {
+        collectedCoin++;
+        coinText.text = collectedCoin.ToString();
+        uiCoin.transform.DOScale(new Vector3(60,50,60), 0.2f).SetLoops(2, LoopType.Yoyo);
+        uiCoinParticle.Play();
+    }
     public void Lose()
     {
         NormalMode();
@@ -34,6 +45,7 @@ public class GameManager : MonoBehaviour
         move = false;
         lose = true;
         failedImage.SetActive(true);
+        horizontalMovement.enabled = false;
         Invoke("resetPanel", 1);
     }
 

@@ -12,6 +12,7 @@ public class Coin : MonoBehaviour
            
             particle.SetActive(true);
             gameObject.GetComponent<MeshRenderer>().enabled = false;
+            GameManager.shared.CoinCollected();
         }
     }
 }
