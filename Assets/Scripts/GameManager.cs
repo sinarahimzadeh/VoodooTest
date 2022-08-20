@@ -8,6 +8,9 @@ public class GameManager : MonoBehaviour
 {
     public bool isTestingOnDesktop = false;
     public bool move, lose, win,feverMode;
+    public CameraFollow cameraFollow;
+    public ForwardMovement forwardMovement;
+
     public float speed, feverModeSpeed, initialSpeed;
     [SerializeField]
     private GameObject
@@ -21,11 +24,21 @@ public class GameManager : MonoBehaviour
     public int collectedCoin = 0;
     public GameObject uiCoin;
     public ParticleSystem uiCoinParticle;
+    public bool isPolicPulling = false;
+    public bool isMovingOut = false;
+
     // Start is called before the first frame update
     void Start()
     {
         shared = this;
         initialSpeed = speed;
+    }
+    public void MoveOut() {
+        speed = 7;
+        move = true;
+        cameraFollow.enabled = false;
+        forwardMovement.enabled = true;
+        isMovingOut = true;
     }
 
     public void Move()
@@ -46,7 +59,7 @@ public class GameManager : MonoBehaviour
         lose = true;
         failedImage.SetActive(true);
         horizontalMovement.enabled = false;
-        Invoke("resetPanel", 1);
+        //Invoke("resetPanel", 1);
     }
 
     public void Win()

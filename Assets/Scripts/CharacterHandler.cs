@@ -22,7 +22,11 @@ public class CharacterHandler : MonoBehaviour
         {
             _animator.enabled = true;
         }
-       
+        if (GameManager.shared.isPolicPulling)
+        {
+            _animator.SetBool("isPulled", true);
+
+        }
     }
     void OnTriggerEnter(Collider collider)
     {
