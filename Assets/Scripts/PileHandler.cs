@@ -12,6 +12,7 @@ using DG.Tweening;
      [SerializeField] private int counter;
      [SerializeField] private float force;
      [SerializeField] private float fevermodeTime;
+    [SerializeField] Camera mainCamera;
      public bool feverMode;
      [SerializeField] private Transform breakable,fractured;
      void OnCollisionEnter(Collision collision)
@@ -40,7 +41,7 @@ using DG.Tweening;
          {
           GameManager.shared.FeverMove();
           GameManager.shared.Invoke("NormalMode",fevermodeTime);
-            collision.gameObject.transform.DOMoveY(5, 2f);
+            collision.gameObject.transform.DOMoveY(5, 0.25f).SetLoops(2,LoopType.Yoyo);
             collision.gameObject.GetComponentInChildren<Animator>().SetBool("isDead",true);
 
          }

@@ -16,10 +16,9 @@ public class ReCenter : MonoBehaviour
     }
     private void LateUpdate()
     {
-        if (playerTransform.position.x != transform.position.x) {
             transform.DOMoveX(playerTransform.position.x, duration).SetDelay(delay);
 
-        }
+        
     }
     public void DoReCenter() {
         transform.DOMoveX(playerTransform.position.x, duration).SetDelay(delay);

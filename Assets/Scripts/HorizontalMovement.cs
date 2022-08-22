@@ -26,6 +26,14 @@ public class HorizontalMovement : MonoBehaviour
                          transform.position.x +  speed * horizentalAxis * multiplier,
                          transform.position.y,
                          transform.position.z);
+            if (transform.position.x >= 11)
+            {
+                transform.position = new Vector3(11, transform.position.y, transform.position.z);
+            }
+            if (transform.position.x <= -11)
+            {
+                transform.position = new Vector3(-11, transform.position.y, transform.position.z);
+            }
         }
         else
         {
@@ -43,6 +51,14 @@ public class HorizontalMovement : MonoBehaviour
                         touch.deltaPosition.x *Time.deltaTime* speed * multiplier,
                         0,
                         0));
+                    if (transform.position.x >= 11)
+                    {
+                        transform.position = new Vector3(11, transform.position.y, transform.position.z);
+                    }
+                    if (transform.position.x <= -11)
+                    {
+                        transform.position = new Vector3(-11, transform.position.y, transform.position.z);
+                    }
                 }
             }
         }

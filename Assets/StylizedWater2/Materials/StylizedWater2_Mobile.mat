@@ -112,7 +112,7 @@ Material:
     - _DepthHorizontal: 4.02
     - _DepthMode: 0
     - _DepthTexture: 1
-    - _DepthVertical: 4
+    - _DepthVertical: 0.01
     - _DisableDepthTexture: 0
     - _DstBlend: 0
     - _EdgeFade: 16.27
@@ -128,7 +128,7 @@ Material:
     - _GlossMapScale: 0
     - _Glossiness: 0
     - _GlossyReflections: 0
-    - _HorizonDistance: 32
+    - _HorizonDistance: 16.8
     - _IntersectionClipping: 0.428
     - _IntersectionFalloff: 1
     - _IntersectionLength: 1.79
@@ -206,13 +206,13 @@ Material:
     - _ZWrite: 1
     m_Colors:
     - _AnimationParams: {r: 1, g: 1, b: 1, a: 0}
-    - _BaseColor: {r: 0.1579299, g: 0.8584906, b: 0.6583303, a: 1}
+    - _BaseColor: {r: 0.19708972, g: 0.9716981, b: 0.8951558, a: 1}
     - _Color: {r: 0.5, g: 0.5, b: 0.5, a: 1}
     - _DepthMapBounds: {r: -402.3, g: -459.43, b: 0.0012693577, a: 0}
     - _DistanceNormalParams: {r: 100, g: 300, b: 0.25, a: 0}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _FoamColor: {r: 1.343341, g: 1.343341, b: 1.343341, a: 0.09803922}
-    - _HorizonColor: {r: 0.9427508, g: 1, b: 0, a: 1}
+    - _HorizonColor: {r: 0.745283, g: 0.36779508, b: 0, a: 1}
     - _IntersectionColor: {r: 1, g: 1, b: 1, a: 1}
     - _RimColor: {r: 1, g: 1, b: 1, a: 1}
     - _ShallowColor: {r: 0, g: 0.8446603, b: 1, a: 0.39607844}

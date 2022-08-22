@@ -93,7 +93,9 @@ public class SizeManager : MonoBehaviour
 
     public void Grow()
     {
-        grow = true;
+        //grow = true;
+
+        transform.DOScaleX(transform.localScale.x + growthRate, 0.3f);
     }
 
     public void Shrink()

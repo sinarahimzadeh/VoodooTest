@@ -120,6 +120,7 @@ public class GameManager : MonoBehaviour
         if (Input.GetMouseButtonDown(0) && !lose && !win)
         {
             Move();
+            
         }
     }
 }

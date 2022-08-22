@@ -21,6 +21,8 @@ public class CharacterHandler : MonoBehaviour
         if (GameManager.shared.move)
         {
             _animator.enabled = true;
+            _animator.SetBool("isRunning", true);
+
         }
         if (GameManager.shared.isPolicPulling)
         {
