@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 499758}
   - component: {fileID: 3330700}
   - component: {fileID: 2349612}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: ChainLinkWhite
   m_TagString: Untagged
   m_Icon: {fileID: 0}

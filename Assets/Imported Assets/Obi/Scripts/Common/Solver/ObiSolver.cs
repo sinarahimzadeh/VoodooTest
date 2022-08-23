@@ -33,7 +33,7 @@ namespace Obi
     [AddComponentMenu("Physics/Obi/Obi Solver", 800)]
     [ExecuteInEditMode]
     [DisallowMultipleComponent]
-    public sealed class ObiSolver : MonoBehaviour
+    public  class ObiSolver : MonoBehaviour
     {
         static ProfilerMarker m_StateInterpolationPerfMarker = new ProfilerMarker("ApplyStateInterpolation");
         static ProfilerMarker m_UpdateVisibilityPerfMarker = new ProfilerMarker("UpdateVisibility");
