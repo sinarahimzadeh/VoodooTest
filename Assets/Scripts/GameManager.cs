@@ -7,7 +7,7 @@ using DG.Tweening;
 public class GameManager : MonoBehaviour
 {
     public bool isTestingOnDesktop = false;
-    public bool move, lose, win,feverMode;
+    public bool move, lose, win,feverMode,boe;
     public CameraFollow cameraFollow;
     public ForwardMovement forwardMovement;
 
@@ -18,7 +18,7 @@ public class GameManager : MonoBehaviour
         failedImage,
         winImage;
     public static GameManager shared;
-    [SerializeField] private GameObject fireparticle1, fireparticle2;
+    [SerializeField] private GameObject fireparticle1, fireparticle2,resetButton;
     [SerializeField] HorizontalMovement horizontalMovement;
     [SerializeField] TMPro.TextMeshProUGUI coinText;
     public int collectedCoin = 0;
@@ -59,7 +59,7 @@ public class GameManager : MonoBehaviour
         lose = true;
         failedImage.SetActive(true);
         horizontalMovement.enabled = false;
-        //Invoke("resetPanel", 1);
+        Invoke("resetPanel", 1);
     }
 
     public void Win()
@@ -70,12 +70,30 @@ public class GameManager : MonoBehaviour
             winImage.SetActive(true);
             win = true;
             panel.SetActive(true);
+           GameObject.Find("Pile").transform.FindChild("EndSaw").gameObject.SetActive(true);
+
         }
         else
         {
-            SceneManager.LoadScene((SceneManager.GetActiveScene().buildIndex) + 1);
+            move = false;
+            winImage.SetActive(true);
+            win = true;
+            panel.SetActive(true);
+            resetButton.SetActive(false);
+            Invoke("NextLevel",3);
+            GameObject.Find("Pile").transform.FindChild("EndSaw").gameObject.SetActive(true);
+
+            this.gameObject.transform.FindChild("EndSaw").gameObject.SetActive(true);
+
+
         }
 
+
+    }
+
+ public   void NextLevel()
+    {
+        SceneManager.LoadScene((SceneManager.GetActiveScene().buildIndex) + 1);
 
     }
 
@@ -117,6 +135,7 @@ public class GameManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
         if (Input.GetMouseButtonDown(0) && !lose && !win)
         {
             Move();
