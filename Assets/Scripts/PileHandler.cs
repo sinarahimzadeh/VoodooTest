@@ -41,7 +41,9 @@ using DG.Tweening;
                  }
                  else
                  {
-                     GameManager.shared.Win();
+                    collision.gameObject.GetComponentInChildren<ParticleSystem>().Play();
+
+                    GameManager.shared.Win();
                     
                  }
 

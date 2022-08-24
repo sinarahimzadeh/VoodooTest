@@ -9,6 +9,8 @@ public class GameManager : MonoBehaviour
     public bool isTestingOnDesktop = false;
     public bool move, lose, win,feverMode,boe;
     public CameraFollow cameraFollow;
+    public Camera camera;
+
     public ForwardMovement forwardMovement;
 
     public float speed, feverModeSpeed, initialSpeed;
@@ -59,6 +61,8 @@ public class GameManager : MonoBehaviour
         lose = true;
         failedImage.SetActive(true);
         horizontalMovement.enabled = false;
+        camera.cullingMask = LayerMask.GetMask("Default");
+
         Invoke("resetPanel", 1);
     }
 
@@ -70,7 +74,7 @@ public class GameManager : MonoBehaviour
             winImage.SetActive(true);
             win = true;
             panel.SetActive(true);
-           GameObject.Find("Pile").transform.FindChild("EndSaw").gameObject.SetActive(true);
+           //GameObject.Find("Pile").transform.Find("EndSaw").gameObject.SetActive(true);
 
         }
         else
@@ -81,9 +85,9 @@ public class GameManager : MonoBehaviour
             panel.SetActive(true);
             resetButton.SetActive(false);
             Invoke("NextLevel",3);
-            GameObject.Find("Pile").transform.FindChild("EndSaw").gameObject.SetActive(true);
+            GameObject.Find("Pile").transform.Find("EndSaw").gameObject.SetActive(true);
 
-            this.gameObject.transform.FindChild("EndSaw").gameObject.SetActive(true);
+            this.gameObject.transform.Find("EndSaw").gameObject.SetActive(true);
 
 
         }

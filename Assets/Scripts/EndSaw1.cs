@@ -18,27 +18,21 @@ public class EndSaw1 : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        transform.DOScale(new Vector3(0.44f, 2, 1.93f), 0.3f).OnComplete(() => {
 
             gameObject.GetComponent<Animator>().enabled = true;
             DISChain.GetComponent<ObiRope>().tearingEnabled = true;
             DISChain.GetComponent<ObiRope>().tearResistanceMultiplier = 10;
-            test.layer = 10;
             camera.cullingMask = LayerMask.GetMask("Default");
 
             transform.DOScale(new Vector3(0.44f, 2, 1.93f), 0.3f).SetDelay(0.3f).OnComplete(() => {
-                saw.SetActive(false);
-                //DISChain.GetComponent<ObiRope>().AddForce(new Vector3(0, Random.Range(-10, -20), 0), ForceMode.Impulse);
                 solver.gravity = new Vector3(0, -25, 0);
 
             });
 
-            transform.DOScale(Vector3.zero, 0.3f).SetDelay(0.6f);
-            
 
+            solver.gravity = new Vector3(0, -25, 0);
             DISChain.GetComponent<ObiRope>().AddForce(new Vector3(0, Random.Range(50, 60), 0), ForceMode.Impulse);
 
-        });
         
     }
 

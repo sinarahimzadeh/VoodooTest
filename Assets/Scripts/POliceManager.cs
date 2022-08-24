@@ -49,8 +49,8 @@ public class POliceManager : MonoBehaviour
         if (GameManager.shared.boe)
         {
             animator.SetBool("boe",true);
-            speed = 0;
-            transform.SetParent(GameObject.Find("Level").transform);
+            StartCoroutine(ZeroSpeed());
+            
         }
 
 
@@ -69,5 +69,18 @@ public class POliceManager : MonoBehaviour
             });
 
         }
+        else if (other.transform.tag == "boe")
+        {
+            GameManager.shared.boe = true;
+            GameManager.shared.speed -= 10;
+
+        }
+    }
+    IEnumerator  ZeroSpeed() {
+
+        yield return new WaitForSeconds(0.4f);
+        speed = 0;
+        transform.SetParent(GameObject.Find("Level").transform);
+
     }
 }
