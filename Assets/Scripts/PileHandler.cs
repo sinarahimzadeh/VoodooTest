@@ -32,6 +32,8 @@ using DG.Tweening;
              }
              else
              {
+                collision.gameObject.GetComponentInChildren<ParticleSystem>().Play();
+                mainCamera.DOShakeRotation(0.5f,5,5,30,true);
                  GameManager.shared.Lose();
 
              }
