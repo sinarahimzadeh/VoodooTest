@@ -4,12 +4,16 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using TMPro;
 using DG.Tweening;
+using Unity.Mathematics;
+using Random = UnityEngine.Random;
+
 public class GameManager : MonoBehaviour
 {
     public bool isTestingOnDesktop = false;
     public bool move, lose, win,feverMode,boe;
     public CameraFollow cameraFollow;
     public Camera camera;
+    [SerializeField] private float force;
 
     public ForwardMovement forwardMovement;
 
@@ -20,9 +24,11 @@ public class GameManager : MonoBehaviour
         failedImage,
         winImage;
     public static GameManager shared;
-    [SerializeField] private GameObject fireparticle1, fireparticle2,resetButton;
+    [SerializeField] private GameObject fireparticle1, fireparticle2,resetButton,Pile,BreakablePile;
     [SerializeField] HorizontalMovement horizontalMovement;
     [SerializeField] TMPro.TextMeshProUGUI coinText;
+    [SerializeField] private Transform BreakablePilePrefab;
+    
     public int collectedCoin = 0;
     public GameObject uiCoin;
     public ParticleSystem uiCoinParticle;
@@ -74,7 +80,15 @@ public class GameManager : MonoBehaviour
             winImage.SetActive(true);
             win = true;
             panel.SetActive(true);
-           //GameObject.Find("Pile").transform.Find("EndSaw").gameObject.SetActive(true);
+            
+            BreakablePile = Instantiate(BreakablePilePrefab, Pile.transform.position, quaternion.EulerXYZ(0,90,0)).gameObject;
+            BreakablePile.transform.localScale= new Vector3(BreakablePile.transform.localScale.x,BreakablePile.transform.localScale.y,Pile.transform.localScale.x/10);
+            BreakablePile.transform.SetParent(GameObject.Find("Level").transform);
+            foreach (Transform i in BreakablePile.transform)
+            {
+                i.GetComponent<Rigidbody>().AddForce(new Vector3(Random.Range(-force,force),-force,Random.Range(0,force*2f)));
+            }
+            Pile.SetActive(false);
 
         }
         else
@@ -84,10 +98,16 @@ public class GameManager : MonoBehaviour
             win = true;
             panel.SetActive(true);
             resetButton.SetActive(false);
+            BreakablePile = Instantiate(BreakablePilePrefab, Pile.transform.position, quaternion.EulerXYZ(0,90,0)).gameObject;
+            BreakablePile.transform.localScale= new Vector3(BreakablePile.transform.localScale.x,BreakablePile.transform.localScale.y,Pile.transform.localScale.x/10);
+            BreakablePile.transform.SetParent(GameObject.Find("Level").transform);
+            foreach (Transform i in BreakablePile.transform)
+            {
+                i.GetComponent<Rigidbody>().AddForce(new Vector3(Random.Range(-force*2,force*2),-force,Random.Range(0,force*2f)));
+            }
+            Pile.SetActive(false);
             Invoke("NextLevel",3);
-            GameObject.Find("Pile").transform.Find("EndSaw").gameObject.SetActive(true);
-
-            this.gameObject.transform.Find("EndSaw").gameObject.SetActive(true);
+       
 
 
         }
@@ -136,14 +156,14 @@ public class GameManager : MonoBehaviour
         fireparticle1.SetActive(false);
         fireparticle2.SetActive(false);
     }
-    // Update is called once per frame
+    // Update is called once per framelk
     void Update()
     {
 
         if (Input.GetMouseButtonDown(0) && !lose && !win)
         {
-            Move();
-            
+         Move();
+       
         }
     }
 }
