@@ -14,6 +14,7 @@ TagManager:
   - gate
   - bonus
   - dumbpolice
+  - boe
   layers:
   - Default
   - TransparentFX

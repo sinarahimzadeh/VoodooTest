@@ -30,11 +30,21 @@ using DG.Tweening;
                      i.GetComponent<Rigidbody>().AddForce(new Vector3(Random.Range(-force,force),Random.Range(-force,force),Random.Range(0,force*5)));
                  }
              }
-             else
+             else 
              {
-                collision.gameObject.GetComponentInChildren<ParticleSystem>().Play();
-                mainCamera.DOShakeRotation(0.5f,5,5,30,true);
-                 GameManager.shared.Lose();
+                 if (!GameManager.shared.boe)
+                 {
+                     collision.gameObject.GetComponentInChildren<ParticleSystem>().Play();
+                     mainCamera.DOShakeRotation(0.5f,5,5,30,true);
+
+                     GameManager.shared.Lose();
+                 }
+                 else
+                 {
+                     GameManager.shared.Win();
+                    
+                 }
+
 
              }
 

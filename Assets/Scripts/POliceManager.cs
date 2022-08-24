@@ -45,8 +45,16 @@ public class POliceManager : MonoBehaviour
             }
 
         }
-        
-        
+
+        if (GameManager.shared.boe)
+        {
+            animator.SetBool("boe",true);
+            speed = 0;
+            transform.SetParent(GameObject.Find("Level").transform);
+        }
+
+
+
     }
 
     private void OnTriggerEnter(Collider other)

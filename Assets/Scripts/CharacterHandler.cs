@@ -47,6 +47,11 @@ public class CharacterHandler : MonoBehaviour
         {
             GameManager.shared.Win();
         }
+        
+        else if (collider.transform.tag == "boe")
+        {
+            GameManager.shared.boe=true;
+        }
     }
 
     

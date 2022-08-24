@@ -6,11 +6,14 @@ public class BonusPlatform : MonoBehaviour
 {
     // Start is called before the first frame update
     [SerializeField] GameObject[] particles;
-    
+    public GameObject Standleft, StandRight;
     void Start()
     {
+     
+
     }
 
+ 
     // Update is called once per frame
     void Update()
     {
@@ -19,6 +22,8 @@ public class BonusPlatform : MonoBehaviour
 
     public void SetBonusText(string text) {
         gameObject.GetComponentsInChildren<TextMeshPro>()[0].text = text;
+
+        
     }
 
     public void StartParticles() {
