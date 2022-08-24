@@ -34,7 +34,7 @@ public class GameManager : MonoBehaviour
         initialSpeed = speed;
     }
     public void MoveOut() {
-        speed = 7;
+        speed = 10;
         move = true;
         cameraFollow.enabled = false;
         forwardMovement.enabled = true;
