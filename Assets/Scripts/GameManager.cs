@@ -14,7 +14,7 @@ public class GameManager : MonoBehaviour
     public CameraFollow cameraFollow;
     public Camera camera;
     [SerializeField] private float force;
-
+    public GameObject endSaw1;
     public ForwardMovement forwardMovement;
 
     public float speed, feverModeSpeed, initialSpeed;
@@ -80,7 +80,7 @@ public class GameManager : MonoBehaviour
             winImage.SetActive(true);
             win = true;
             panel.SetActive(true);
-            
+            endSaw1.SetActive(true);
             BreakablePile = Instantiate(BreakablePilePrefab, Pile.transform.position, quaternion.EulerXYZ(0,90,0)).gameObject;
             BreakablePile.transform.localScale= new Vector3(BreakablePile.transform.localScale.x,BreakablePile.transform.localScale.y,Pile.transform.localScale.x/10);
             BreakablePile.transform.SetParent(GameObject.Find("Level").transform);
@@ -93,6 +93,8 @@ public class GameManager : MonoBehaviour
         }
         else
         {
+            endSaw1.SetActive(true);
+
             move = false;
             winImage.SetActive(true);
             win = true;

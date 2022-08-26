@@ -271,8 +271,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 12, y: 1.9844415, z: 10}
-  m_Center: {x: 0, y: -0.70810544, z: 5}
+  m_Size: {x: 12, y: 1.7162542, z: 10}
+  m_Center: {x: 0, y: -0.8421991, z: 5}
 --- !u!114 &7375647633761680813
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -423,6 +423,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5799102828943470054, guid: 388d400ddeabc41cc92a40840838640f, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 154d34fe17e9a4f858a8a744ae2e0348, type: 2}
     - target: {fileID: 6042714675548100731, guid: 388d400ddeabc41cc92a40840838640f, type: 3}
       propertyPath: m_Name
       value: StandEndBonusleft
@@ -502,6 +506,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5799102828943470054, guid: 388d400ddeabc41cc92a40840838640f, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 154d34fe17e9a4f858a8a744ae2e0348, type: 2}
     - target: {fileID: 6042714675548100731, guid: 388d400ddeabc41cc92a40840838640f, type: 3}
       propertyPath: m_Name
       value: StandEndBonusRight
