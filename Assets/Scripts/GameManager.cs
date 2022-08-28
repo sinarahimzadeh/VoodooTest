@@ -79,7 +79,7 @@ public class GameManager : MonoBehaviour
     public void Win()
     {
         PlayerPrefs.SetInt("lvl", PlayerPrefs.GetInt("lvl") + 1);
-        if (SceneManager.GetActiveScene().buildIndex == SceneManager.sceneCountInBuildSettings)
+        if (SceneManager.GetActiveScene().buildIndex == SceneManager.sceneCountInBuildSettings -1 )
         {
             move = false;
             winImage.SetActive(true);
@@ -94,6 +94,9 @@ public class GameManager : MonoBehaviour
                 i.GetComponent<Rigidbody>().AddForce(new Vector3(Random.Range(-force,force),-force,Random.Range(0,force*2f)));
             }
             Pile.SetActive(false);
+            StartCoroutine(RandomLevelLoad());
+            print("HI IM HERE 1");
+
 
         }
         else
@@ -113,6 +116,7 @@ public class GameManager : MonoBehaviour
                 i.GetComponent<Rigidbody>().AddForce(new Vector3(Random.Range(-force*2,force*2),-force,Random.Range(0,force*2f)));
             }
             Pile.SetActive(false);
+            print("HI IM HERE 2");
             Invoke("NextLevel",3);
        
 
@@ -121,8 +125,12 @@ public class GameManager : MonoBehaviour
 
 
     }
+    IEnumerator RandomLevelLoad() {
+        yield return new WaitForSeconds(1.5f);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
 
- public   void NextLevel()
+    }
+    public   void NextLevel()
     {
         TinySauce.OnGameFinished(true, collectedCoin, SceneManager.GetActiveScene().buildIndex.ToString()) ;
         SceneManager.LoadScene((SceneManager.GetActiveScene().buildIndex) + 1);
