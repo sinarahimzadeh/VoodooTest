@@ -16,9 +16,9 @@ MonoBehaviour:
   clientTokens:
   - 
   appIds:
-  - 0
+  - 763551798288357
   appLabels:
-  - App Name
+  - RunOfFreedom
   cookie: 1
   logging: 1
   status: 1

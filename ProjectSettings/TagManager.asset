@@ -15,6 +15,7 @@ TagManager:
   - bonus
   - dumbpolice
   - boe
+  - detectorRange
   layers:
   - Default
   - TransparentFX

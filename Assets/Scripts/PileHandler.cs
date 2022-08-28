@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
  using Unity.Mathematics;
- using UnityEngine.Windows.Speech;
  using Random = UnityEngine.Random;
 
  public class PileHandler : MonoBehaviour

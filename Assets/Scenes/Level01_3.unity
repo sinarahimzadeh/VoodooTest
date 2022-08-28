@@ -43585,6 +43585,10 @@ PrefabInstance:
       propertyPath: linkInstances.Array.size
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2120576826369808238, guid: 4512bad9b96d3477f9bc23346a928f4f, type: 3}
+      propertyPath: isTestingOnDesktop
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7011800907520297084, guid: 4512bad9b96d3477f9bc23346a928f4f, type: 3}
       propertyPath: m_RootOrder
       value: 5
@@ -97062,7 +97066,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5085535631192559512, guid: 8adbc1a46242141a39e0bead2d8fcc87, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 173.4
+      value: 171.02
       objectReference: {fileID: 0}
     - target: {fileID: 5085535631192559512, guid: 8adbc1a46242141a39e0bead2d8fcc87, type: 3}
       propertyPath: m_LocalRotation.w

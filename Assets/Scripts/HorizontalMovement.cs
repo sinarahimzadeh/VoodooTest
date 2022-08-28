@@ -21,7 +21,6 @@ public class HorizontalMovement : MonoBehaviour
         if (GameManager.shared.isTestingOnDesktop)
         {
             float horizentalAxis = Input.GetAxis("Horizontal");
-            print(horizentalAxis);
             transform.position = new Vector3(
                          transform.position.x +  speed * horizentalAxis * multiplier,
                          transform.position.y,

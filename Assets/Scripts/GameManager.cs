@@ -52,6 +52,9 @@ public class GameManager : MonoBehaviour
     public void Move()
     {
         move = true;
+        TinySauce.OnGameStarted(SceneManager.GetActiveScene().buildIndex.ToString());
+
+
     }
     public void CoinCollected() {
         collectedCoin++;
@@ -69,11 +72,13 @@ public class GameManager : MonoBehaviour
         horizontalMovement.enabled = false;
         camera.cullingMask = LayerMask.GetMask("Default");
 
+
         Invoke("resetPanel", 1);
     }
 
     public void Win()
     {
+        PlayerPrefs.SetInt("lvl", PlayerPrefs.GetInt("lvl") + 1);
         if (SceneManager.GetActiveScene().buildIndex == SceneManager.sceneCountInBuildSettings)
         {
             move = false;
@@ -119,6 +124,7 @@ public class GameManager : MonoBehaviour
 
  public   void NextLevel()
     {
+        TinySauce.OnGameFinished(true, collectedCoin, SceneManager.GetActiveScene().buildIndex.ToString()) ;
         SceneManager.LoadScene((SceneManager.GetActiveScene().buildIndex) + 1);
 
     }
