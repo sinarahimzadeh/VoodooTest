@@ -6,6 +6,8 @@ using TMPro;
 using DG.Tweening;
 using Unity.Mathematics;
 using Random = UnityEngine.Random;
+using NotificationSamples;
+using Unity.Notifications.Android;
 
 public class GameManager : MonoBehaviour
 {
@@ -80,6 +82,26 @@ public class GameManager : MonoBehaviour
     public void Win()
     {
         PlayerPrefs.SetInt("lvl", PlayerPrefs.GetInt("lvl") + 1);
+
+        if (PlayerPrefs.GetInt("lvl") == 1) {
+            var channel = new AndroidNotificationChannel()
+            {
+                Id = "channel_id",
+                Name = "Default Channel",
+                Importance = Importance.Default,
+                Description = "Generic notifications",
+            };
+            AndroidNotificationCenter.RegisterNotificationChannel(channel);
+            var notification = new AndroidNotification();
+            notification.Title = "SAVE ME PLEASE!!!";
+            notification.Text = "Help me escape pleaseeee";
+            notification.FireTime = System.DateTime.Now.AddMinutes(1);
+
+            AndroidNotificationCenter.SendNotification(notification, "channel_id");
+          
+
+
+        }
         if (SceneManager.GetActiveScene().buildIndex == SceneManager.sceneCountInBuildSettings -1 )
         {
             move = false;
@@ -119,8 +141,8 @@ public class GameManager : MonoBehaviour
             }
             Pile.SetActive(false);
             print("HI IM HERE 2");
-            Invoke("NextLevel",3);
-       
+            nextL.SetActive(true);
+
 
 
         }
