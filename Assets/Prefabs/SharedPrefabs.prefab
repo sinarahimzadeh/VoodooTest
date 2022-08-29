@@ -130,7 +130,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7869887933132172614, guid: c0eb1aab5e2382645a79564ca54011cd, type: 3}
       propertyPath: speed
-      value: 0.9
+      value: 0.3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c0eb1aab5e2382645a79564ca54011cd, type: 3}
@@ -1168,7 +1168,7 @@ PrefabInstance:
       objectReference: {fileID: 7289346009617166784}
     - target: {fileID: 4978597006585414970, guid: bfa6a71bb3ee348888832598cc0a6f5d, type: 3}
       propertyPath: isTestingOnDesktop
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4978597006585414970, guid: bfa6a71bb3ee348888832598cc0a6f5d, type: 3}
       propertyPath: BreakablePilePrefab

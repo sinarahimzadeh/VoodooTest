@@ -31,6 +31,9 @@ public class LevelBuilder : MonoBehaviour
     [SerializeField] GameObject dynamicSpike;
 
     [SerializeField] GameObject collectAblePile;
+    [SerializeField] GameObject collectAblePile2;
+    [SerializeField] GameObject collectAblePile3;
+    [SerializeField] GameObject collectAblePile4;
 
     [SerializeField] GameObject coinPack1;
     [SerializeField] GameObject coinPack2;
@@ -39,18 +42,29 @@ public class LevelBuilder : MonoBehaviour
     [SerializeField] public LevelObjects levelObjects;
 
     int[] validItems;
-    int[] coinOnly = { 16, 17, 18 };
+    int[] coinOnly = { 15, 16, 17 };
     int[] spikeOnly = { 13, 14 };
-    int[] startItems = { 0, 1, 2, 3, 4, 5, 13, 14, 16, 17, 18 };
+    int[] startItems = { 0, 1, 2, 3, 4, 5, 13, 14, 15, 16, 17 };
     int[] startItemsNoCoin = { 0, 1, 2, 3, 4, 5, 13, 14 };
-    int[] all = { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18 };
-    int[] allNoCoin = { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15 };
+    int[] all = { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18,19,20,21 };
+    int[] allNoCoin = { 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 18,19,20,21 };
+    int[] allNoCoinNoGate = { 13, 14, 18, 19, 20, 21 };
+    int[] allNoGate = { 13, 14, 15, 16, 17, 18, 19, 20, 21 };
 
 
-    private void Awake()
-    {
-        
+    int continuesGate = 0;
+    int continuesSpike = 0;
+    int maxContinuesGate = 4;
+    int maxContinuesSpike = 1;
+
+
+    bool isGate(LevelObjectType objectType) {
+        if (((int)objectType) <= 12) {
+            return true;
+        }
+        return false;
     }
+
     void Start()
     {
         levelObjects = DataSaver.loadData<LevelObjects>("lvl" + PlayerPrefs.GetInt("lvl"));
@@ -101,8 +115,24 @@ public class LevelBuilder : MonoBehaviour
                                 validItems = startItems;
                             }
                         }
+                    if (continuesGate >= maxContinuesGate) {
+                        continuesGate = 0;
 
-                        levelObject.type = (LevelObjectType)validItems[UnityEngine.Random.Range(0, validItems.Length)];
+                        if (levelObjects.levelObjects[i - 1].type == (LevelObjectType.COIN_PACK_1) ||
+                       levelObjects.levelObjects[i - 1].type == (LevelObjectType.COIN_PACK_2) ||
+                       levelObjects.levelObjects[i - 1].type == (LevelObjectType.COIN_PACK_3))
+                        {
+                            validItems = allNoCoinNoGate;
+                        }
+                        else
+                        {
+                            validItems = allNoGate;
+                        }
+                    } 
+                      levelObject.type = (LevelObjectType)validItems[UnityEngine.Random.Range(0, validItems.Length)];
+                    if (isGate(levelObject.type)) {
+                        continuesGate++;
+                    }
 
                     }
                     levelObjects.levelObjects.Add( levelObject);
@@ -263,7 +293,31 @@ public class LevelBuilder : MonoBehaviour
                        levelObject.xPosition,
                        0.6f,
                        standardDistance * levelObject.zPosition),
-                       Quaternion.Euler(0, -90, 0)).
+                       Quaternion.Euler(0, 0, 0)).
+                       transform.SetParent(gameObject.transform);
+                    break;
+                case LevelObjectType.COLLECTABLE_PILE2:
+                    Instantiate(collectAblePile2, new Vector3(
+                       levelObject.xPosition,
+                       0.6f,
+                       standardDistance * levelObject.zPosition),
+                       Quaternion.Euler(0, 0, 0)).
+                       transform.SetParent(gameObject.transform);
+                    break;
+                case LevelObjectType.COLLECTABLE_PILE3:
+                    Instantiate(collectAblePile3, new Vector3(
+                       levelObject.xPosition,
+                       0.6f,
+                       standardDistance * levelObject.zPosition),
+                       Quaternion.Euler(0, 0, 0)).
+                       transform.SetParent(gameObject.transform);
+                    break;
+                case LevelObjectType.COLLECTABLE_PILE4:
+                    Instantiate(collectAblePile4, new Vector3(
+                       levelObject.xPosition,
+                       0.6f,
+                       standardDistance * levelObject.zPosition),
+                       Quaternion.Euler(0, 0, 0)).
                        transform.SetParent(gameObject.transform);
                     break;
 
@@ -325,7 +379,10 @@ public enum LevelObjectType
     GATE4_LEFT_EASY, GATE4_RIGHT_EASY, GATE4_CENTER_EASY, GATE4_BALANCE,
     GATE5_BALANCE, GATE1_DYNAMIC,
     STATIC_SPIKE, DYNAMIC_SPIKE,
-    COLLECTABLE_PILE,
-    COIN_PACK_1, COIN_PACK_2, COIN_PACK_3
+    COIN_PACK_1, COIN_PACK_2, COIN_PACK_3,
+    COLLECTABLE_PILE,COLLECTABLE_PILE2, COLLECTABLE_PILE3, COLLECTABLE_PILE4,
+
+
+
 
 }

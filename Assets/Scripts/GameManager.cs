@@ -20,9 +20,10 @@ public class GameManager : MonoBehaviour
     public float speed, feverModeSpeed, initialSpeed;
     [SerializeField]
     private GameObject
-        panel,
+        panel,restart,
         failedImage,
-        winImage;
+        winImage,
+        nextL;
     public static GameManager shared;
     [SerializeField] private GameObject fireparticle1, fireparticle2,resetButton,Pile,BreakablePile;
     [SerializeField] HorizontalMovement horizontalMovement;
@@ -94,7 +95,8 @@ public class GameManager : MonoBehaviour
                 i.GetComponent<Rigidbody>().AddForce(new Vector3(Random.Range(-force,force),-force,Random.Range(0,force*2f)));
             }
             Pile.SetActive(false);
-            StartCoroutine(RandomLevelLoad());
+            //StartCoroutine(RandomLevelLoad());
+            nextL.SetActive(true);
             print("HI IM HERE 1");
 
 
@@ -125,8 +127,7 @@ public class GameManager : MonoBehaviour
 
 
     }
-    IEnumerator RandomLevelLoad() {
-        yield return new WaitForSeconds(1.5f);
+    public void RandomLevelLoad() {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
 
     }
@@ -140,6 +141,8 @@ public class GameManager : MonoBehaviour
     void resetPanel()
     {
         panel.SetActive(true);
+        restart.SetActive(true);
+        
 
     }
 
