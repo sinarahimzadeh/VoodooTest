@@ -93,10 +93,11 @@ public class GameManager : MonoBehaviour
             };
             AndroidNotificationCenter.RegisterNotificationChannel(channel);
             var notification = new AndroidNotification();
-            notification.Title = "SAVE ME PLEASE!!!";
-            notification.Text = "Help me escape pleaseeee";
+            notification.Title = "Psst Psst";
+            notification.Text = "Help me escape!";
             notification.FireTime = System.DateTime.Now.AddMinutes(1);
-
+            notification.SmallIcon = "icon_0";
+            notification.LargeIcon = "icon_1";
             AndroidNotificationCenter.SendNotification(notification, "channel_id");
           
 
@@ -155,8 +156,17 @@ public class GameManager : MonoBehaviour
     }
     public   void NextLevel()
     {
+
         TinySauce.OnGameFinished(true, collectedCoin, SceneManager.GetActiveScene().buildIndex.ToString()) ;
-        SceneManager.LoadScene((SceneManager.GetActiveScene().buildIndex) + 1);
+        if (SceneManager.GetActiveScene().buildIndex == SceneManager.sceneCountInBuildSettings - 1) {
+            RandomLevelLoad();
+
+        }
+        else {
+            SceneManager.LoadScene((SceneManager.GetActiveScene().buildIndex) + 1);
+
+        }
+
 
     }
 

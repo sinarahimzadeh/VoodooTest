@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class EnvironmentPicker : MonoBehaviour
 {
@@ -18,15 +19,19 @@ public class EnvironmentPicker : MonoBehaviour
     [SerializeField] Color color2;
     [SerializeField] Color color3;
     [SerializeField] Color color4;
-
+    int env = 0;
 
 
     // Start is called before the first frame update
     void Start()
     {
-        int env =PlayerPrefs.GetInt("lvl") % 4;
 
-        switch (env) {
+        env = PlayerPrefs.GetInt("lvl") % 4;
+
+
+
+        switch (env)
+        {
             case 0:
                 env1.SetActive(true);
                 RenderSettings.skybox = sky1;
@@ -59,6 +64,6 @@ public class EnvironmentPicker : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 }
