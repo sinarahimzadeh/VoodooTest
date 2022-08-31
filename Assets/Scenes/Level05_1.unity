@@ -834,7 +834,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2120576826369808238, guid: 4512bad9b96d3477f9bc23346a928f4f, type: 3}
       propertyPath: isTestingOnDesktop
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7011800907520297084, guid: 4512bad9b96d3477f9bc23346a928f4f, type: 3}
       propertyPath: m_RootOrder
@@ -882,7 +882,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7289346009617166784, guid: 4512bad9b96d3477f9bc23346a928f4f, type: 3}
       propertyPath: speed
-      value: 0.3
+      value: 1.1
       objectReference: {fileID: 0}
     - target: {fileID: 8829594440569330558, guid: 4512bad9b96d3477f9bc23346a928f4f, type: 3}
       propertyPath: m_Name

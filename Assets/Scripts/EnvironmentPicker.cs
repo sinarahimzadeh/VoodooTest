@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -33,27 +34,29 @@ public class EnvironmentPicker : MonoBehaviour
         switch (env)
         {
             case 0:
+                
                 env1.SetActive(true);
+                Instantiate(env1, new Vector3(0,0,0), quaternion.identity);
                 RenderSettings.skybox = sky1;
                 RenderSettings.fogColor = color1;
 
                 break;
             case 1:
-                env2.SetActive(true);
+                Instantiate(env2, new Vector3(0, 0, 0), quaternion.identity);
                 RenderSettings.skybox = sky2;
                 RenderSettings.fogColor = color2;
 
 
                 break;
             case 2:
-                env3.SetActive(true);
+                Instantiate(env3, new Vector3(0, 0, 0), quaternion.identity);
                 RenderSettings.skybox = sky3;
                 RenderSettings.fogColor = color3;
 
 
                 break;
             case 3:
-                env4.SetActive(true);
+                Instantiate(env4, new Vector3(0, 0, 0), quaternion.identity);
                 RenderSettings.skybox = sky4;
                 RenderSettings.fogColor = color4;
 

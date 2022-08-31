@@ -22,9 +22,9 @@ public class LevelManager : MonoBehaviour
         if (levelIndex == 0) {
             levelIndex = 1;
         }
-        if (levelIndex >= 14)
+        if (levelIndex >= 11)
         {
-            SceneManager.LoadScene(14);
+            SceneManager.LoadScene(11);
 
         }
         else { SceneManager.LoadScene(levelIndex); }
